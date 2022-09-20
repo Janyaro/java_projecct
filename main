@@ -1,0 +1,62 @@
+
+        System.out.println("Welcome");
+    Scanner sc = new Scanner(System.in);
+        System.out.println("Enter you name");
+        String name = sc.nextLine();
+        System.out.println("Enter you area");
+        String area = sc.nextLine();
+        c1.vaccinater_data(name, area);
+
+        // vaccine system          
+         System.out.println("Select vaccine quaintity ");
+         System.out.println("BCG");
+         int b= sc.nextInt();
+         System.out.println("penta");
+         int p = sc.nextInt();
+         System.out.println("Rota");
+         int r = sc.nextInt();
+         System.out.println("Measeles");
+         int m = sc.nextInt();
+         c1.set_Vaccine(b, p, r, m);
+         char c;
+        // now proccess is started
+         do {
+         
+        int option = sc.nextInt();
+        switch (option) {
+            // children option
+            case 1:
+            
+            case 2:
+            // pregnent women 
+            default:
+            System.out.println("You Enter wrong option");
+                break;
+        }
+
+        System.out.println("Do you want to continue");
+         c = sc.next().charAt(0);
+    } while (c == 'y');
+
+
+
+
+
+
+
+
+    // vac_recode.write("name"+ child_name +);
+
+         System.out.println("Enter return vaccine detail");
+         System.out.println("BCG");
+         int rbcg= sc.nextInt();
+         System.out.println("penta");
+         int rp = sc.nextInt();
+         System.out.println("Rota");
+         int rr = sc.nextInt();
+         System.out.println("Measeles");
+         int rm = sc.nextInt();
+         c1.return_vaccine(rbcg, rp, rr, rm);
+     sc.close();
+  // now option game will be start 
+c1.seeVaccine();
