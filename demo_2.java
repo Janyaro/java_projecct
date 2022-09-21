@@ -4,7 +4,7 @@ import java.io.IOException;
 // import java.util.Scanner;
 
 // interface vaccinater
-interface vaccinator{
+interface vaccinator{ 
     public void set_Vaccine(int bcg,int p,int r,int m);
     public void return_vaccine(int rbcg,int rp,int rr,int rm);
 }
@@ -41,8 +41,8 @@ String name;
    }
 
 public void vaccinater_data(String name,String area) throws IOException {
-    FileWriter vac_recode = new FileWriter(vac);
-    vac_recode.write("Vaccinater name :"+ name + "  Vaccinated area :" + area);
+    FileWriter vac_recode = new FileWriter(vac,true);
+    vac_recode.write("Vaccinater name :"+ name + "  Vaccinated area :" + area + "\n");
 vac_recode.close();
     
 }
@@ -95,8 +95,8 @@ vac_recode.close();
     
     @Override
     public void details(String name, int age, String vaccine) throws IOException{
-FileWriter cw_record = new FileWriter(vac);
-cw_record.write(name +" "+age + " "+vaccine ); 
+FileWriter cw_record = new FileWriter(vac,true);
+cw_record.write(name +" "+age + " "+vaccine +"\n") ; 
 cw_record.close();       
     }
 }
@@ -108,7 +108,9 @@ public static void main(String[] args) throws IOException {
     // vac.createNewFile();
     center c1 = new center();
 // c1.create_File();
-c1.vaccinater_data("name", "area");
-c1.details("wasem", 12, "vaccine");
+c1.age=3;
+c1.vaccinater_data("waseem janyaro", "Keti bunder");
+c1.details("name",33 ,"vaccine");
+
         }
     }
