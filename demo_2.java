@@ -1,7 +1,14 @@
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.FilterWriter;
 import java.io.IOException;
+import java.io.InputStream;
 // import java.util.Scanner;
+import java.util.Scanner;
+
+import javax.sql.rowset.CachedRowSet;
 
 // interface vaccinater
 interface vaccinator{ 
@@ -60,13 +67,14 @@ vac_recode.close();
         this.PENTA=p;
         this.ROTA=r;
         this.MEASELES=m;
-        try {
-            seeVaccine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+        // try {
+        //     seeVaccine();
+        // } catch (IOException e) {
+        //     e.printStackTrace();
+        // }
     }
-    
+       
     @Override
     public void return_vaccine(int rbcg,int rp,int rr,int rm) {
         int re_bcg=BCG-rbcg;
@@ -99,18 +107,103 @@ FileWriter cw_record = new FileWriter(vac,true);
 cw_record.write(name +" "+age + " "+vaccine +"\n") ; 
 cw_record.close();       
     }
+
+    public void vaccine_detail() throws FileNotFoundException {
+        FileReader fr = new FileReader(f1);
+        Scanner scan = new Scanner(fr);
+        while (scan.hasNextLine()) {
+            String line = scan.nextLine();
+            System.out.println(line);
+        }
+        scan.close();
+        // System.out.println("BCG "+BCG);
+        // System.out.println("Penta "+PENTA);
+        // System.out.println("ROta "+ROTA);
+        // System.out.println("Measeles "+MEASELES);
+    }
+    public void delete_file(int del_file) {
+        switch (del_file) {
+            case 1:
+                vac.delete();
+                break;
+         case 2:
+         f1.delete();
+            default:
+            System.out.println("Invalid option");
+                break;
+        }
+        
+    }
 }
 
 public class demo_2 {
 public static void main(String[] args) throws IOException {
-
-    
-    // vac.createNewFile();
     center c1 = new center();
-// c1.create_File();
-c1.age=3;
-c1.vaccinater_data("waseem janyaro", "Keti bunder");
-c1.details("name",33 ,"vaccine");
+    Scanner sc =new Scanner(System.in);
+System.out.println("Enter vaccinater name");
+String name = sc.nextLine();
+System.out.println("Enter vaccination area");
+String area = sc.nextLine();
+c1.vaccinater_data(name, area);
 
-        }
+System.out.println("Manage vaccination ");
+System.out.println("BCG ");
+int bcg=sc.nextInt();
+System.out.println("Penta");
+int p = sc.nextInt();
+System.out.println("Rota");
+int r= sc.nextInt();
+System.out.println("Measeles");
+int m = sc.nextInt();
+c1.set_Vaccine(bcg, p, r, m);
+char con;
+do { 
+System.out.println("1:see vaccine");
+System.out.println("2: vaccination ");
+System.out.println("3: delete file");
+int option = sc.nextInt();
+
+
+switch (option) {
+    case 1:
+        c1.vaccine_detail();
+        break;
+    case 2:
+    
+        
+    
+    System.out.println("Enter children name ");
+    String child_name = sc.nextLine();
+//   InputStream.skip(child_name);
+    System.out.println("Enter age");
+    int child_age = sc.nextInt();
+    System.out.println("Enter vaccine type");
+    String vaccine = sc.nextLine();
+    c1.details(child_name, child_age, vaccine);
+    
+    break;
+    case 3:
+    System.out.println("1:Delete data file");
+    System.out.println("2:vaccine file");
+    int del_file = sc.nextInt();
+    c1.delete_file(del_file);
+        default:
+
+        break;
+}
+System.out.println("Do you want to continue");
+    con = sc.next().charAt(0);
+} while (con=='y'||con=='Y');
+// System.out.println("Enter return vaccine");
+// System.out.println("BCG ");
+// int rbcg=sc.nextInt();
+// System.out.println("Penta");
+// int rp = sc.nextInt();
+// System.out.println("Rota");
+// int rr= sc.nextInt();
+// System.out.println("Measeles");
+// int rm = sc.nextInt();
+// c1.return_vaccine(rbcg, rp, rr, rm);
+sc.close();
+}
     }
