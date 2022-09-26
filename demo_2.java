@@ -166,8 +166,12 @@ int option = sc.nextInt();
 
 switch (option) {
     case 1:
+      try {
         c1.vaccine_detail();
-        break;
+ 
+      } catch (Exception e) {
+    System.out.println("vaccination file doesnot found");       
+    }          break;
     case 2:
     
         
