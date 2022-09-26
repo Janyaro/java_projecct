@@ -177,13 +177,12 @@ switch (option) {
         
     
     System.out.println("Enter children name ");
-    String child_name = sc.nextLine();
-//   InputStream.skip(child_name);
+    String child_name = sc.nextLine()
     System.out.println("Enter age");
     int child_age = sc.nextInt();
     System.out.println("Enter vaccine type");
     String vaccine = sc.nextLine();
-    c1.details(child_name, child_age, vaccine);
+    c1.details(children_name, children_age, vaccine);
     
     break;
     case 3:

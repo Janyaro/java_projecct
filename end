@@ -1,0 +1,23 @@
+[33mcommit fb2908482c89c9d67e11b5fa066a64eeb8fdc6e2[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: wasim akram <waseemjanyaro@gmail.com>
+Date:   Sun Sep 25 23:21:09 2022 -0700
+
+    handling Exception
+
+[33mcommit ac2b01638dfa60db3f398f9fdd4fb541c3bc0369[m
+Author: wasim akram <waseemjanyaro@gmail.com>
+Date:   Wed Sep 21 09:53:08 2022 -0700
+
+    manage main method
+
+[33mcommit ed15293d103dab023ee215d5df860d85fc13b2ed[m
+Author: wasim akram <waseemjanyaro@gmail.com>
+Date:   Wed Sep 21 08:38:14 2022 -0700
+
+    Append data in existing file
+
+[33mcommit 36fd78851216b94a775e894e8cbe35ce0e90d11b[m
+Author: wasim akram <waseemjanyaro@gmail.com>
+Date:   Tue Sep 20 11:53:01 2022 -0700
+
+    manage class method
