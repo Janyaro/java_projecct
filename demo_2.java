@@ -8,7 +8,7 @@ import java.io.InputStream;
 // import java.util.Scanner;
 import java.util.Scanner;
 
-import javax.sql.rowset.CachedRowSet;
+
 
 // interface vaccinater
 interface vaccinator{ 
@@ -16,7 +16,7 @@ interface vaccinator{
     public void return_vaccine(int rbcg,int rp,int rr,int rm);
 }
 abstract class CW_Detail{
-    public abstract void details(String name,int age,String vaccine) throws IOException;
+    public abstract void details(String child_name,int age,String vaccinename) throws IOException;
 }
 
  // age exception 
@@ -27,7 +27,7 @@ public String toString() {
 }
 }
 
-// center 
+// center class
 
   class center extends CW_Detail implements vaccinator{
 // files name 
@@ -67,12 +67,6 @@ vac_recode.close();
         this.PENTA=p;
         this.ROTA=r;
         this.MEASELES=m;
-
-        // try {
-        //     seeVaccine();
-        // } catch (IOException e) {
-        //     e.printStackTrace();
-        // }
     }
        
     @Override
@@ -102,9 +96,9 @@ vac_recode.close();
   // end of vaccine method 
     
     @Override
-    public void details(String name, int age, String vaccine) throws IOException{
+    public void details(String child_name, int age, String vaccinename) throws IOException{
 FileWriter cw_record = new FileWriter(vac,true);
-cw_record.write(name +" "+age + " "+vaccine +"\n") ; 
+cw_record.write(child_name +" "+age + " "+vaccinename +"\n") ; 
 cw_record.close();       
     }
 
@@ -116,10 +110,7 @@ cw_record.close();
             System.out.println(line);
         }
         scan.close();
-        // System.out.println("BCG "+BCG);
-        // System.out.println("Penta "+PENTA);
-        // System.out.println("ROta "+ROTA);
-        // System.out.println("Measeles "+MEASELES);
+        
     }
     public void delete_file(int del_file) {
         switch (del_file) {
@@ -171,27 +162,45 @@ switch (option) {
  
       } catch (Exception e) {
     System.out.println("vaccination file doesnot found");       
-    }          break;
+    }         
+     break;
     case 2:
-    
-        
-    
-    System.out.println("Enter children name ");
-    String child_name = sc.nextLine()
-    System.out.println("Enter age");
+    try {
+        System.out.println("Enter children name ");    
+        String child_name = sc.nextLine().toString();
+        try {
+            System.out.println("Enter age");
     int child_age = sc.nextInt();
-    System.out.println("Enter vaccine type");
-    String vaccine = sc.nextLine();
-    c1.details(children_name, children_age, vaccine);
+    try {
+        System.out.println("Enter vaccine type");
+        String vaccine = sc.nextLine();
+        c1.details(child_name, child_age, vaccine);
+                
+    } catch (Exception e) {
+        System.out.println("Enter wright output");
+    }
+        } catch (Exception e) {
+                    System.out.println("Enter integer");
+        }
+    } catch (Exception e) {
+        
+        System.out.println("Enter String ");
+    }
     
-    break;
+
+    
+break;
     case 3:
+   try {
     System.out.println("1:Delete data file");
     System.out.println("2:vaccine file");
     int del_file = sc.nextInt();
     c1.delete_file(del_file);
-        default:
-
+  
+   } catch (Exception e) {
+System.out.println("Files not found");
+   }    
+     default:
         break;
 }
 System.out.println("Do you want to continue");
