@@ -3,6 +3,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.security.DrbgParameters.NextBytes;
 import java.util.Scanner;
 
 abstract class CW_Detail {
@@ -19,7 +20,6 @@ class age_Exception extends Exception {
     }
 }
 
-// center class
 
 class center extends CW_Detail {
     // files name
@@ -108,18 +108,20 @@ public class demo_2 {
         System.out.println("Enter vaccination area");
         String area = sc.nextLine();
         c1.vaccinater_data(name, area);
-
-        System.out.println("Manage vaccination ");
-        System.out.println("BCG ");
-        int bcg = sc.nextInt();
-        System.out.println("Penta");
-        int p = sc.nextInt();
-        System.out.println("Rota");
-        int r = sc.nextInt();
-        System.out.println("Measeles");
-        int m = sc.nextInt();
-        c1.set_Vaccine(bcg, p, r, m);
-
+try {
+    System.out.println("Manage vaccination ");
+    System.out.println("BCG ");
+    int bcg = sc.nextInt();
+    System.out.println("Penta");
+    int p = sc.nextInt();
+    System.out.println("Rota");
+    int r = sc.nextInt();
+    System.out.println("Measeles");
+    int m = sc.nextInt();
+    c1.set_Vaccine(bcg, p, r, m);   
+} catch (Exception e) {
+    System.out.println("Enter right data");
+}
         char con;
         do {
             System.out.println("1:see vaccine");
@@ -156,9 +158,19 @@ public class demo_2 {
                 default:
                     break;
             }
+            sc.nextLine();
             System.out.println("Do you want to continue");
             con = sc.next().charAt(0);
         } while (con == 'y' || con == 'Y');
+        // System.out.println("Enter return BCG Vaccine");
+        // int re_bcg = sc.nextInt();
+        // System.out.println("Enter return Penta Vaccine");
+        // int re_penta = sc.nextInt();
+        // System.out.println("Enter return Rota Vaccine");
+        // int re_rota = sc.nextInt();
+        // System.out.println("Enter return Measeles Vaccine");
+        // int re_measl = sc.nextInt();
         sc.close();
+
     }
 }
